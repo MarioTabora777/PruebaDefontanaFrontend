@@ -1,0 +1,114 @@
+.table-vertical tbody {
+  display: block;
+  max-height: 230px;
+  overflow-y: auto;
+}
+
+.table-responsive-horizontal {
+  overflow-x: auto;
+  white-space: nowrap; 
+}
+
+.table-responsive-horizontal table {
+  width: auto; 
+}
+
+.table-vertical thead,
+tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.water-type {
+  background-color: #3498db;
+  color: #fff;
+  border: 1px solid #2980b9;
+}
+
+.fire-type {
+  background-color: #e74c3c;
+  color: #fff;
+  border: 1px solid #c0392b;
+}
+
+.grass-type {
+  background-color: #2ecc71;
+  color: #fff;
+  border: 1px solid #27ae60;
+}
+
+.electric-type {
+  background-color: #f1c40f;
+  color: #333;
+  border: 1px solid #d4ac0d;
+}
+
+.ice-type {
+  background-color: #3498db;
+  color: #fff;
+  border: 1px solid #2980b9;
+}
+
+.fighting-type {
+  background-color: #c0392b;
+  color: #fff;
+  border: 1px solid #a5281b;
+}
+
+.bug-type {
+  background-color: #48c935;
+  color: #fff;
+  border: 1px solid #388d29;
+}
+
+.poison-type {
+  background-color: #a230d5;
+  color: #fff;
+  border: 1px solid #7d1c9c;
+}
+
+.flying-type {
+  background-color: #92a6c0;
+  color: #000;
+  border: 1px solid #70869d;
+}
+
+.text-custom-justify {
+  text-align: justify;
+}
+
+.type-normal {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+
+
+
+.fixed_header {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+.fixed_header #Resumetbody {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  height: 350px;
+}
+.fixed_header #Resumethead #Resumetr{
+  display: block;
+}
+.fixed_header #Resumethead {
+ 
+  color: #fff;
+}
+.fixed_header #Resumeth,
+.fixed_header #Resumetd {
+  padding: 5px;
+  text-align: left;
+  width: 800px;
+}  
+
+

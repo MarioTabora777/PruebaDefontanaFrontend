@@ -1,0 +1,105 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <h1 class="text-center my-4"> Lista</h1>
+        <div class="input-group mb-3">
+          <input class="form-control" type="text" [(ngModel)]="searchText" placeholder="Buscar Pokémon..." (input)="searchPokemon()" list="datalistOptions">
+          <datalist id="datalistOptions">
+            <option *ngFor="let pokemon of filteredPokemons" value="{{ pokemon.name }}"></option>
+          </datalist>
+        </div>
+        
+        <table class="table table-hover table-striped fixed_header">
+          <thead>
+            <tr>
+              <th class="text-center">Nombre</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let pokemon of filteredPokemons | paginate: { itemsPerPage: 20, currentPage: p }">
+              <td (click)="showPokemonDetails(pokemon.url)" class="pointer">{{ pokemon.name }}</td>
+            </tr>
+          </tbody>
+        </table>
+  
+        <nav aria-label="Page navigation">
+          <ul class="pagination justify-content-center">
+            <li class="page-item">
+              <button class="page-link" (click)="loadPreviousPage()" [disabled]="!previousUrl">Anterior</button>
+            </li>
+            <li class="page-item">
+              <label class="page-link">{{ currentPage }}</label>
+            </li>
+            <li class="page-item">
+              <button class="page-link" (click)="loadNextPage()" [disabled]="!nextUrl">Siguiente</button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      
+      <div class="col-md-4  justify-content-center" >  
+
+          <div class="row justify-content-center"> 
+
+            <div class="card col mt-5 " style="width:300px; height: 40 px;" *ngIf="selectedPokemon" [ngClass]="getPokemonTypeClasses(selectedPokemon)"> 
+
+            
+              
+              <div class="card-body justify-content-center"> 
+                <h5 class="card-title">Detalles de {{ selectedPokemon.name }}</h5> 
+                <img [src]="selectedPokemon.sprites.front_default" class="card-img-top" alt="{{ selectedPokemon.name }}" height="200">
+                <span *ngFor="let type of selectedPokemon.types"
+              [ngClass]="{'badge border rounded-pill me-1': true, 'text-dark': isNormalType()}">
+              {{type.type.name | titlecase}}
+            </span> 
+                <p class="text-justify"><strong>Altura:</strong> {{ selectedPokemon.height / 10 }} m</p>
+              <p class="text-justify"><strong>Peso:</strong> {{ selectedPokemon.weight / 10 }} kg</p>  
+           
+            
+              
+           
+              </div>
+              
+             
+            </div>
+
+          </div>
+
+          
+          <div class="row  mt-5">  
+            <div class="col-sm">
+              <div class="table-responsive" >
+                <table class="table  " style="width: 800px; ">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <ng-container *ngFor="let letter of alphabet">
+                        <th>{{ letter }}</th>
+                      </ng-container>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Cantidad</td>
+                      <ng-container *ngFor="let letter of alphabet">
+                        <td>{{ countPokemonsByLetter(letter) }}</td>
+                      </ng-container>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              
+            </div>
+          </div>
+        
+      </div>
+    </div> 
+
+
+  
+
+
+  </div>
+  
+
+  
